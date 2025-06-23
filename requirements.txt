@@ -1,0 +1,15 @@
+# Core dependencies
+agent-starter-pack @ git+https://github.com/GoogleCloudPlatform/agent-starter-pack.git
+vertexai>=1.38.0
+pandas>=2.0.0
+requests>=2.31.0
+google-cloud-bigquery>=3.12.0
+google-cloud-aiplatform>=1.38.0
+flask>=2.2.0
+PyYAML>=6.0
+# For PDF/Markdown generation
+markdown2>=2.4.10
+# For Cloud Run
+gunicorn>=21.2.0
+streamlit>=1.33.0
+fpdf2>=2.7.8 

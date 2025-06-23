@@ -1,0 +1,29 @@
+agents:
+  - id: intake_agent
+    name: IntakeAgent
+    description: Extracts symptoms, duration, and history from patient input using LLM text extraction. Logs structured data to BigQuery.
+    tools:
+      - tool_llm_text_extraction
+      - tool_gcp_bigquery
+  - id: triage_agent
+    name: TriageAgent
+    description: Assigns urgency levels based on symptoms and comorbidities using Python logic and tool_python.
+    tools:
+      - tool_python
+  - id: diagnostics_agent
+    name: DiagnosticsAgent
+    description: Suggests likely conditions using Gemini via Vertex AI. Includes disclaimer: 'This is not a diagnosis...'.
+    tools:
+      - tool_gemini_generate_text
+  - id: report_agent
+    name: ReportAgent
+    description: Aggregates all outputs and generates a Markdown-formatted summary. Can call external APIs for PDF generation.
+    tools:
+      - tool_llm_generate_text
+      - tool_http
+
+gemini:
+  model: gemini-pro
+  provider: vertexai
+  project: <YOUR_GCP_PROJECT_ID>
+  location: <YOUR_VERTEX_AI_REGION> 
